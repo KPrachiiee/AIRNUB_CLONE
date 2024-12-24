@@ -8,11 +8,14 @@
 
     <% for(let listing of allListings) { %>
     <div class="card" style="width: 18rem;">
-       <!-- <img src="<%= listing.image %>" class="card-img-top" alt="listing_image"/> -->
-                  <img src=" listing_image"class="card-img-top" alt="<%-listing.image%>"/> 
+        <img src="<%= listing.image.url %>" class="card-img-top" alt=""/> 
+          <div class="card-body">
+          <p class="card-text">
+               <%= listing.title %> <br>
+               <%= listing.price %>
+              </p>
+        
 
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
       <% } %>
@@ -22,6 +25,12 @@
         <% for(let listing of allListings) { %>
             <li><a href="/listings/<%= listing._id %>"> <%= listing.title %> </a></li>
             <% } %>
-    </u>
+    </ul>
 </body>
+
+
+
+
+
+
 
