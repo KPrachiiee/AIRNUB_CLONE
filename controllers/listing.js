@@ -41,7 +41,7 @@ module.exports.showListing =async(req, res) => {
           query: req.body.listing.location,
           limit: 1
         })
-          .send()
+          .send();
           // .then(response => {
           //   const match = response.body;
           // });
@@ -67,7 +67,6 @@ module.exports.renderEditForm = async (req, res) => {
     }
      let originalImageUrl = listing.image.url;
     originalImageUrl = originalImageUrl.replace("/upload", "/upload/,w_250") + "?v=" + Date.now();
-
     //res.render("listings/edit.ejs", { listing });
      res.render("listings/edit.ejs", { listing,originalImageUrl });
   }; 
