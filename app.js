@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !="production"){
+    require('dotenv').config();
+}
+
 const express = require("express");
 const app = express();
 const mongoose= require("mongoose");
@@ -67,7 +71,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success"); //create route in listing.js and index.ejs
     res.locals.error= req.flash("error");
-    //to pass user info to ejs file, as req.user is not accessible in ejs directly.
+    res.locals.currUser=req.user;//to pass user info to ejs file, as req.user is not accessible in ejs directly.
     next();
 });
 
